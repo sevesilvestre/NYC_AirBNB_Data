@@ -7,6 +7,7 @@
 
 ## Code Used:
 Python Version: 3.8
+
 Packages: pandas, numpy, sklearn, matplotlib, kmodes
 
 ## Challenges: 
