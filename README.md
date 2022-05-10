@@ -22,3 +22,7 @@ The K-Prototype clustering method determined 3 clusters of AirBNB customers:
 - Cluster 2: Customers who mainly book Entire homes and apartments potentially to fit larger parties of guests, but at not too high of a cost. 
 - Cluster 3: Very wealthy customers who have big money and spend approximately $6,000 a night on an AirBNB.
 
+![](https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/NYCCoefficient.png)
+
+![](https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/NYCCluster.png)
+
