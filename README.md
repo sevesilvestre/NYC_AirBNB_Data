@@ -1,4 +1,4 @@
-# New York AirBNB Data Science Project
+<h1 align="center">New York AirBNB Data Science Project </h1>
 
 ## Overview
 With New York having the 3rd most AirBNB listings in 2021 with over 94,000 listings, this project delves into the factors that influence New York City's AirBNB prices, using advanced modeling techniques such as cross-validation, dimensionality reduction, and K-Modes/K-Prototype clustering. With a dataset containing 50,000 data points and 16 variables, we used Python Notebook to clean and visualize the data, and identified key drivers of price fluctuations in one of the world's busiest markets for short-term rentals.
@@ -9,11 +9,14 @@ Python Version: 3.8
 Packages: pandas, numpy, sklearn, matplotlib, kmodes
 
 ## Key Findings
-• Cleaned and managed a complex dataset of 50,000 data points and 16 variables to gather relevant and insightful data in Python
+- Concluded that AirBNB listings that provide the customer an entire home/apartment tended to cause prices to jump, while shared rooms tended to cause prices to dip. 
 
-• Developed nine different models utiliizing cross validation, dimensionality reduction, and K-Modes/K-Prototype clustering to determine which variables affected NYC AirBNB prices while providing business insight on the NYC AirBNB environment
+- Manhattan would generate a higher price, but an AirBNB in either Staten Island or Bronx both negatively affected the price at the same magnitude while one in Queens negatively affected the price less and one in Brooklyn positively affected the total price of the Airbnb listing.
 
-• Concluded that NYC AirBNB’s are influenced most by location and room type where “Entire Home” AirBNB’s in Manhattan increased the price of an AirBNB the most
+- 3 clusters of AirBNB customers:
+  - Cluster 1: Customers who don’t care what type of room they book, as long as it is the cheapest price.
+  - Cluster 2: Customers who mainly book Entire homes and apartments potentially to fit larger parties of     guests, but at not too high of a cost.
+  - Cluster 3: Very wealthy customers who have big money and spend approximately $6,000 a night on an AirBNB.
 
 ## The questions that I aimed to address through my data project are:
 - How are AirBNB rentals distributed among the five boroughs of New York?
@@ -44,13 +47,20 @@ Using ggplot in Python, we are able to create a bar chart of the number of AirBN
 ```
 ggplot(nyc, aes(x = "neighbourhood_group", fill = "neighbourhood_group")) + geom_bar() + theme_minimal() + theme(panel_grid_major = element_blank()) + labs(title = "How Many listings are there in each borough?")
 ```
-[Insert Image]
+<p align="center">
+  <img src= "https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/nycbar.png">
+</p>
+
 We can see that out the 5 boroughs, Manhattan has the most number of listings and Brooklyn has the 2nd most highest number of listings. On the other hand, Staten Island has the least number of AirBNB listings and Bronx comes in with the 2nd lowest number of listings.
 
 ```
 listings = nyc['neighbourhood_group'].value_counts()
 plot = listings.plot.pie(y='count', figsize=(5, 5), autopct='%1.0f%%')
 ```
+<p align="center">
+  <img src= "https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/mycpie.png">
+</p>
+
 We can see that Manhattan contains 43% of all NYC AirBNB listings while Staten Island only contains 1% of all the listings. We can see that the majority of this dataset is consumed of listings located in Manhattan and Brooklyn making up 85% of all data in this dataset.
 
 ## Question 2: What is the price distribution of AirBNB rentals among the five boroughs?
@@ -76,11 +86,13 @@ ggplot(coefficients, aes(x = "Name" , y = "Coef", fill = "Name")) + geom_bar(sta
       panel_grid_minor_y = element_blank(), 
        axis_text_x = element_text(size = 7, angle = 90))
 ```
-[Insert image]
+<p align="center">
+  <img src= "https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/NYCCoefficient.png">
+</p>
 
 This bar chart displays the coefficient values of each value on their affect on AirBNB prices. The higher the coefficient, the stronger the positive relationship there is between these variables. The more negrative the coefficient, the stronger the negative relationship there is between these variables. Based on this chart, we notice that if a listing is an Entire home/apt, that tends to bump up the price the most compared to any other variable. Another variable that will increase price is if the listing is located in Manhattan. Variables such as Shared room and Staten Island present a negative coefficient value meaning that if a listing contains these variables, they tend to decrease the price of a listing. Variables that are valued at 0 tend to have 0 effect on the price of an AirBNB listing such as availability and number of reviews.
 
-As this bar chart represents the affect of variables on price in NYC as a whole, an more in-depth analysis was performed where a linear regression model was performed per borough located [here].
+As this bar chart represents the affect of variables on price in NYC as a whole, an more in-depth analysis was performed where a linear regression model was performed per borough located  [here](https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/NYC_AirBNB.ipynb).
 
 After determining which varaibales affect price the most and least, a bar chart of average prices of AirBNB's in each borough was developed using the following code:
 ```
@@ -105,7 +117,9 @@ print("Average price in Manhattan:", manhattanprice)
 print("Average price in Queens:", queensprice)
 print("Average price in Staten Island:", statenprice)
 ```
-[Insert Image]
+<p align="center">
+  <img src= "https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/nycprice.png">
+</p>
 
 The price distribution of AirBNB rentals across the five buroughs are 180/night in Manhattan, 121/night in Brooklyn, 96/night in Queens, 90/night in Staten Island, and 80/night in the Bronx.
 
@@ -132,7 +146,9 @@ ggplot(cluster0, aes(x = "room_type", y = "price")) + geom_boxplot() + theme_min
       panel_grid_minor_y = element_blank(), 
        axis_text_x = element_text(size = 7))
 ```
-[Insert Image]
+<p align="center">
+  <img src= "https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/NYCCluster.png">
+</p>
 
 This boxplot displays the price distribution of each room type for our first cluster, "Cluster 0". Customers in this cluster tend to spend around 131/night for an entire home/apartment, around 68/night for a private room, and around 43/night for a shared room. The dots on on each boxplot also display any outliers on certain data points that fit in our cluster but are not near the mean price for each room type.
 
@@ -142,7 +158,9 @@ ggplot(cluster0, aes(x = "room_type", fill = "room_type")) + geom_bar() + theme_
       panel_grid_minor_y = element_blank(), 
        axis_text_x = element_text(size = 7))
 ```
-[Insert Image]
+<p align="center">
+  <img src= "https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/cluster0coef.png">
+</p>
 
 This bar chart describes the number of listings for each room type in our first cluster, "Cluster 0". Customers who rented out private rooms consisted of most of the data points in this cluster while Entire homes and apartments were rented out second most in this cluster. Not many customers in this cluster rented out a shared room comapred to the other room types, but this cluster represents most of all renters who rented our shared rooms in this whole dataset as we will see in the next charts.
 
@@ -153,7 +171,9 @@ ggplot(cluster1, aes(x = "room_type", y = "price")) + geom_boxplot() + theme_min
       panel_grid_minor_y = element_blank(), 
        axis_text_x = element_text(size = 7))
 ```
-[Insert Image]
+<p align="center">
+  <img src= "https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/cluster1.png">
+</p>
 
 This boxplot displays the price distribution of each room type for our second cluster, "Cluster 1". Customers in this cluster tend to spend around 346/night for an entire home/apartment, around 445/night for a private room, and around 292/night for a shared room. The dots on on each boxplot also display any outliers on certain data points that fit in our cluster but are not near the mean price for each room type. We see that prices for Entire home and apartment in this cluster can go all the way to 2500/night.
 
@@ -163,7 +183,9 @@ ggplot(cluster1, aes(x = "room_type", fill = "room_type")) + geom_bar() + theme_
       panel_grid_minor_y = element_blank(), 
        axis_text_x = element_text(size = 7))
 ```
-[Insert Image]
+<p align="center">
+  <img src= "https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/cluster1coef.png">
+</p>
 
 This bar chart describes the number of listings for each room type in our second cluster, "Cluster 1". Customers who rented out Entire homes and apartments consisted of most of the data points in this cluster while both private rooms and shared rooms were barely rented out in this cluster.
 
@@ -174,7 +196,9 @@ ggplot(cluster2, aes(x = "room_type", y = "price")) + geom_boxplot() + theme_min
       panel_grid_minor_y = element_blank(), 
        axis_text_x = element_text(size = 7))
 ```
-[Insert Image]
+<p align="center">
+  <img src= "https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/cluster2.png">
+</p>
 
 This boxplot displays the price distribution of each room type for our third cluster, "Cluster 2". Customers in this cluster tend to spend around 6500/night for an entire home/apartment, around 6250/night for a private room, and no customers in this cluster rented out a shared room. The box for an entire home/apartment shows that customers in this cluster are willing to pay from 5000 to 8000 per night and 5750 to 7000 per night for a private room.
 
@@ -184,7 +208,9 @@ ggplot(cluster2, aes(x = "room_type", fill = "room_type")) + geom_bar() + theme_
       panel_grid_minor_y = element_blank(), 
        axis_text_x = element_text(size = 7))
 ```
-[Insert Image]
+<p align="center">
+  <img src= "https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/cluster2coef.png">
+</p>
 
 This bar chart describes the number of listings for each room type in our third cluster, "Cluster 2". This cluster only contains 5 customers who rented out an entire home/apartment and only 2 customers who rented out a private room. No customer in this cluster rented a shared room.
 
@@ -198,8 +224,3 @@ The K-Prototype clustering method determined 3 clusters of AirBNB customers:
 - Cluster 3: Very wealthy customers who have big money and spend approximately $6,000 a night on an AirBNB.
 
 Overall, these insights would be of great value for AirBNB hosts looking to gain market knowledge of the NYC ecosystem and correctly position themselves for the most return possible.
-
-![](https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/NYCCoefficient.png)
-
-![](https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/NYCCluster.png)
-
