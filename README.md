@@ -1,5 +1,9 @@
 <h1 align="center">New York AirBNB Data Science Project </h1>
 
+<p align="center">
+  <img src= "https://github.com/sevesilvestre/NYC_AirBNB_Data/blob/main/images/nyc.webp">
+</p>
+
 ## Overview
 With New York having the 3rd most AirBNB listings in 2021 with over 94,000 listings, this project delves into the factors that influence New York City's AirBNB prices, using advanced modeling techniques such as cross-validation, dimensionality reduction, and K-Modes/K-Prototype clustering. With a dataset containing 50,000 data points and 16 variables, we used Python Notebook to clean and visualize the data, and identified key drivers of price fluctuations in one of the world's busiest markets for short-term rentals.
 
