@@ -12,6 +12,11 @@ Python Version: 3.8
 
 Packages: pandas, numpy, sklearn, matplotlib, kmodes
 
+## The questions that I aimed to address through my data project are:
+- How are AirBNB rentals distributed among the five boroughs of New York?
+- What is the price distribution of AirBNB rentals among the five boroughs?
+- What can we learn from a clustering model of all brooklyn listings using "price" and "room type" as variables?
+
 ## Key Findings
 - Concluded that AirBNB listings that provide the customer an entire home/apartment tended to cause prices to jump, while shared rooms tended to cause prices to dip. 
 
@@ -22,14 +27,9 @@ Packages: pandas, numpy, sklearn, matplotlib, kmodes
   - Cluster 2: Customers who mainly book Entire homes and apartments potentially to fit larger parties of     guests, but at not too high of a cost.
   - Cluster 3: Very wealthy customers who have big money and spend approximately $6,000 a night on an AirBNB.
 
-## The questions that I aimed to address through my data project are:
-- How are AirBNB rentals distributed among the five boroughs of New York?
-- What is the price distribution of AirBNB rentals among the five boroughs?
-- What can we learn from a clustering model of all brooklyn listings using "price" and "room type" as variables?
-
 ## Data Gathering
 With these questions I had, I downloaded a dataset from Kaggle to help me answer these questions:
-• [Enter Kaggle Dataset]
+- **[New York City AirBnB Open Data](https://www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data)** (Source: Kaggle)
 
 ## Data Cleaning + Data Manipulation
 After loading the dataset into Jupyter Notebooks, the first order of business is drop any columns that will not be necessary fro this analysis, as well as creating dummy variables for each borough as the "borough" variable will be used later on in regression and cluster analysis.
